@@ -276,30 +276,22 @@ yarn add @commitlint/prompt --dev
   "scripts": {
     "commit": "git-cz"
   },
-  "devDependencies": {
-    "@commitlint/cli": "~7.2.1",
-    "@commitlint/config-conventional": "~7.1.2",
-    "@commitlint/prompt": "~7.2.1",
-    "@commitlint/prompt-cli": "~7.2.1",
-    "cz-conventional-changelog": "2.1.0",
-    "husky": "~1.1.3",
-    "lint-staged": "~8.0.4"
-  },
   "config": {
     "commitizen": {
-      "path": "./node_modules/@commitlint/prompt"
+      "path": "./node_modules/cz-conventional-changelog"
     }
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "lint-staged": {
-    "pages/**/*.js": ["eslint --fix", "git add"]
+  "devDependencies": {
+    "@commitlint/cli": "~7.2.1",
+    "@commitlint/config-conventional": "~7.1.2",
+    "@commitlint/prompt": "~7.2.1",
+    "cz-conventional-changelog": "~2.1.0",
+    "husky": "~1.1.3"
   }
 }
 ```
-
-> :information_source: 这里额外配置了 `lint-staged`，commit 提交前进行 eslint 代码校验，结合 commit 规范使用，更加爽歪歪~~
